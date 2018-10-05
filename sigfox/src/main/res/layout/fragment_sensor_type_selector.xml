@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <androidx.recyclerview.widget.RecyclerView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/sensorTypeSelector_list"
+        android:minWidth="@dimen/dialog_width"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingEnd="@dimen/dialog_endPadding"
+        android:paddingStart="@dimen/dialog_startPadding"
+        android:paddingTop="@dimen/dialog_topPadding"
+        android:paddingBottom="@dimen/dialog_bottomPadding"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:context=".view.SensorTypeSelectorFragment"
+        tools:listitem="@layout/item_sensor_type" />
+
+

@@ -1,0 +1,7 @@
+include ':BlueSTSDK',
+        ':BlueSTSDK_Gui',
+        ':Sigfox',
+        ":app"
+
+project(':BlueSTSDK').projectDir = new File('BlueSTSDK/BlueSTSDK')
+
