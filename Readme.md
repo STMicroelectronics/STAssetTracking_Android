@@ -2,29 +2,23 @@
 
 This repository contains the ST Asset Tracking app source code.
 
-With the ST Asset Tracking app, you can configure and set-up the threshold of Asset Tracking Sigfox node running the [FP-ATR-SIGFOX1](https://www.st.com/content/st_com/en/products/embedded-software/mcu-mpu-embedded-software/stm32-embedded-software/stm32-ode-function-pack-sw/fp-atr-sigfox1.html) firmware package. This package is based on NUCLEO-L053R8 or NUCLEO-L476RG boards, and it supports X-NUCLEO-S2868A1 (built around S2-LP high performance ultra-low power Sub-1GHz RF transceiver) and X-NUCLEO-IDB05A1 (built around BlueNRG-MS very low power BLE4.2 network processor module) for Connectivity, and X-NUCLEO-IKS01A2 for Sensing.
+With the ST Asset Tracking app, you can configure and set-up the threshold of Asset Tracking Bluetooth Low Energy device and NFC Sensor.
+The app communicates with the [FP-ATR-BLE1](https://www.st.com/en/embedded-software/fp-atr-ble1.html), [FP-SNS-SMARTAG1](https://www.st.com/en/embedded-software/fp-sns-smartag1.html), [FP-SNS-SMARTAG2](https://www.st.com/en/embedded-software/fp-sns-smartag2.html), [FP-ATR-ASTRA1](https://www.st.com/en/embedded-software/fp-atr-astra1.html) functional packs firmware running on an STM32 microcontroller, which manages the specific environmental and motion sensor data logging activity. The app also supports [Astra](https://www.st.com/en/evaluation-tools/steval-astra1b.html) board that has NFC and short / long range connectivity (BLE, LoRa, and 2.4 GHz and sub 1-GHz proprietary protocols).
 
-FP-ATR-SIGFOX1 is a firmware package running on STM32 which lets you read data from environmental and motion sensors and send collected data via Sigfox connectivity, moreover Low-energy device geolocation is provided by the Sigfox infrastructure
 The app lets you change sampling intervals, choose which sensor data is logged, and the conditions that trigger data logging.
-Once configured, using BLE connectivity, the system is starting to track the position, environmental and motion sensors and send it by LPWAN Sigfox service.
+Once configured, the app is starting to track the position, environmental and motion sensors and allows the user to send recorded data to the ST AWS dashboard.
+The data collected on dashboard can be consulted through charts and filtered through time intervals up to 7 days before.
 
 ## Download the source
 
-Since the project uses git submodules, <code>--recursive</code> option must be used to clone the repository:
-
-```Shell
-git clone --recurse-submodules https://github.com/STMicroelectronics/STAssetTracking_Android
-```
-
-or run
+To clone the repository:
 ```Shell
 git clone https://github.com/STMicroelectronics/STAssetTracking_Android
-git submodule update --init --recursive
 ```
 
 ## License
 
-Copyright (c) 2019  STMicroelectronics – All rights reserved
+Copyright (c) 2023  STMicroelectronics – All rights reserved
 The STMicroelectronics corporate logo is a trademark of STMicroelectronics
 
 Redistribution and use in source and binary forms, with or without modification,
