@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sign_in_with_myst">Sign in with MyST</string>
+    <string name="sign_in_with_keycloak">Sign in with Keycloak</string>
+    <string name="retry_label" translatable="false">Retry</string>
+</resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="addThreshold_title_format">Add %s Threshold</string>
+    <string name="addThreshold_description">Clicking on the chechbox "Enable" notify the system to monitoring of that sensor.</string>
+    <string name="addThreshold_description2">You are asked to specify the sensor confidence interval \n(min, max).</string>
+    <string name="addThreshold_description21">The board will record values lower than min and values greater than max.\nYou can set up max 10 thresholds.</string>
+    <string name="addThreshold_description3">By clicking on the "play" button, you can start and stop the log.</string>
+    <string name="addThreshold_lesser_than">Lesser than</string>
+    <string name="addThreshold_greater_than">Greater than</string>
+    <string name="addThreshold_thresholdValue_hint">Threshold value</string>
+    <string name="addThreshold_create">Close</string>
+    <string name="addThreshold_cancel">Cancel</string>
+</resources>

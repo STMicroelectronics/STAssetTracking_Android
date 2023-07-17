@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="singleDevice_telemetryTab">Telemetry</string>
+    <string name="singleDevice_plotTab">Plot</string>
+    <string name="singleDevice_locationTab">Location</string>
+    <string name="singleDevice_eventsTab">Events</string>
+    <string name="singleDevice_listTab">List</string>
+    <string name="singleDevice_loadingData">Loading…</string>
+    <string name="singleDevice_errorLoadingData">Error loading the data</string>
+    <string name="single_device_load_3hData">3H</string>
+    <string name="single_device_load_6hData">6H</string>
+    <string name="single_device_load_1dData">1D</string>
+    <string name="single_device_load_2dData">2D</string>
+    <string name="single_device_load_7dData">7D</string>
+</resources>

@@ -1,0 +1,5 @@
+.DS_Store
+/build
+awsconfiguration.json
+certificate_pem_crt
+private_pem_key

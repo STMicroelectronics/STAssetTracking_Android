@@ -1,0 +1,56 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-parcelize'
+
+android {
+    compileSdkVersion rootProject.compileSdkVersion
+    buildToolsVersion rootProject.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = rootProject.ext.javaVersion.toString()
+    }
+
+    sourceSets {
+        all {
+            res.srcDirs += ['st_images']
+        }
+    }
+    namespace 'com.st.assetTracking.threshold'
+
+}
+
+dependencies {
+    implementation project(path: ':BlueSTSDK')
+    implementation project(path: ':UI')
+
+    implementation group: 'androidx.appcompat', name: 'appcompat', version: "$rootProject.androidx_appCompatVersion"
+    implementation group: 'com.google.android.material', name: 'material', version: "$rootProject.androidx_materialVersion"
+
+    implementation group: 'androidx.recyclerview', name: 'recyclerview', version: "$rootProject.androidx_recycleViewVersion"
+    implementation group: 'androidx.constraintlayout', name: 'constraintlayout', version: "$rootProject.androidx_constraintLayoutVersion"
+    implementation group: 'androidx.fragment', name: 'fragment-ktx', version: "$rootProject.androidx_fragmentKtx"
+    implementation group: 'androidx.lifecycle', name: 'lifecycle-extensions', version: "$rootProject.lifeCycleExtensionVersion"
+    implementation group: 'androidx.lifecycle', name: 'lifecycle-viewmodel-ktx', version: "$rootProject.androidx_lifecycleKtx"
+}

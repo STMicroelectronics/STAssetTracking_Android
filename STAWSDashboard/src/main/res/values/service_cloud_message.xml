@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="cloudMessage_channelName">Web Dashboard Notification</string>
+    <string name="cloudMessage_channelDesc">Notification from the ST Asset tracking dashboard</string>
+    <string name="cloudMessage_notificationTitle">ST Asset Tracking Dashboard</string>
+</resources>

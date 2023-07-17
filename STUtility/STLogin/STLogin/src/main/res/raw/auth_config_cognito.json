@@ -1,0 +1,16 @@
+{
+  "title": "{INSERT_PARAMETER}",
+  "client_id": "{INSERT_PARAMETER}",
+  "redirect_uri": "{INSERT_PARAMETER}",
+  "authorization_scope": "{INSERT_PARAMETER}",
+  "discovery_uri": "{INSERT_PARAMETER}",
+  "authorization_endpoint_uri": "{INSERT_PARAMETER}",
+  "token_endpoint_uri": "{INSERT_PARAMETER}",
+  "registration_endpoint_uri": "{INSERT_PARAMETER}",
+  "user_info_endpoint_uri": "{INSERT_PARAMETER}",
+  "https_required": true,
+  "identity_provider": "{INSERT_PARAMETER}",
+  "api_gateway": "{INSERT_PARAMETER}",
+  "web_dsh_endpoint": "{INSERT_PARAMETER}",
+  "web_dsh_logout": "{INSERT_PARAMETER}"
+}

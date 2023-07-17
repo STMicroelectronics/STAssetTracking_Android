@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="float_input_range_error">The value must be in the range [%.1f … %.1f]</string>
+    <string name="int_input_range_error">The value must be in the range [%d … %d]</string>
+</resources>

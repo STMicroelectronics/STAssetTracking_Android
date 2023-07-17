@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application>
+
+        <!-- SmarTagService -->
+        <service
+            android:name="com.st.smartaglibrary.v1.SmarTagService"
+            android:exported="false" />
+
+        <!-- SmarTag2Service -->
+        <service
+            android:name="com.st.smartaglibrary.v2.SmarTag2Service"
+            android:exported="false" />
+
+        <!-- Tag1SingleShot -->
+        <activity
+            android:name="com.st.nfcSmarTag.v1.tagSingleShot.Tag1SingleShot"
+            android:exported="false"
+            android:launchMode="singleTask">
+        </activity>
+
+        <!-- Tag2SingleShot -->
+        <activity
+            android:name="com.st.nfcSmarTag.v2.singleshot.Tag2SingleShot"
+            android:exported="false"
+            android:launchMode="singleTask"/>
+
+        <!-- SingleShotPreferenceActivity -->
+        <activity
+            android:name="com.st.nfcSmarTag.v1.tagSingleShot.settings.SingleShotPreferenceActivity"
+            android:label="@string/title_activity_single_shot_preference"/>
+
+        <!-- NfcTag2MainActivity -->
+        <activity
+            android:name="com.st.nfcSmarTag.v2.NfcTag2MainActivity"
+            android:exported="false"
+            android:launchMode="singleTask">
+            <meta-data
+                android:name="android.nfc.action.TECH_DISCOVERED"
+                android:resource="@xml/nfc_smart_tag_tech_filter" />
+        </activity>
+
+        <!-- Nfc2ProvisioningDevice -->
+        <activity
+            android:name="com.st.nfcSmarTag.v2.provisioning.Nfc2ProvisioningDevice"
+            android:noHistory="true">
+        </activity>
+
+        <!-- NfcProvisioningDevice -->
+        <activity
+            android:name="com.st.nfcSmarTag.v1.provisioning.NfcProvisioningDevice"
+            android:noHistory="true">
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+    </application>
+
+</manifest>

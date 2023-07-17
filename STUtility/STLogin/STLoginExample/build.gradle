@@ -1,0 +1,65 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdkVersion 33
+
+    defaultConfig {
+        applicationId "com.st.login.example"
+        minSdkVersion 26
+        targetSdkVersion 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation project(path: ':STLogin')
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "androidx.core:core-ktx:$rootProject.core_ktx"
+    implementation "androidx.appcompat:appcompat:$rootProject.androidx_appCompatVersion"
+    implementation "com.google.android.material:material:$rootProject.androidx_materialVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.androidx_constraintLayoutVersion"
+    testImplementation "junit:junit:$rootProject.junitVersion"
+
+    implementation "androidx.core:core-ktx:$rootProject.core_ktx"
+    implementation "androidx.appcompat:appcompat:$rootProject.androidx_appCompatVersion"
+    implementation "com.google.android.material:material:$rootProject.androidx_materialVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.androidx_constraintLayoutVersion"
+    testImplementation "junit:junit:$rootProject.junitVersion"
+    implementation group: 'com.google.android.material', name: 'material', version: "$rootProject.androidx_materialVersion"
+
+    api "androidx.lifecycle:lifecycle-viewmodel-ktx:$androidx_lifecycleKtx"
+
+    // Lifecycle management
+    implementation group: 'androidx.lifecycle', name: 'lifecycle-extensions', version: "$rootProject.androidx_lifecycleExtVersion"
+    implementation group: 'androidx.activity', name: 'activity-ktx', version: "$rootProject.androidx_activityKtx"
+    implementation group: 'androidx.fragment', name: 'fragment-ktx', version: "$rootProject.androidx_fragmentKtx"
+    implementation 'com.auth0:java-jwt:4.0.0'
+    implementation 'net.openid:appauth:0.11.1'
+    implementation 'com.github.babbel:okhttp-aws-signer:1.0.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.3'
+    implementation 'com.squareup.okio:okio:3.2.0'
+}

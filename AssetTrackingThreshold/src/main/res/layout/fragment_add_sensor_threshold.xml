@@ -1,0 +1,194 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:minWidth="@dimen/dialog_minWidth"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/addThreshold_label0"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:text="@string/addThreshold_description"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_range"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/range"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/addThreshold_label0" />
+
+        <!--<TextView
+            android:id="@+id/addThreshold_label1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/addThreshold_description"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/iv_range"
+            app:layout_constraintTop_toBottomOf="@id/iv_range" />-->
+
+        <TextView
+            android:id="@+id/addThreshold_label1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/addThreshold_lesser_than"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="@+id/iv_range"
+            app:layout_constraintStart_toStartOf="@+id/iv_range"
+            app:layout_constraintTop_toBottomOf="@+id/iv_range" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/addThreshold_threshold_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/addThreshold_threshold_unit"
+            app:layout_constraintStart_toStartOf="@+id/addThreshold_label1"
+            app:layout_constraintTop_toBottomOf="@+id/addThreshold_label1">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/addThreshold_threshold_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/addThreshold_thresholdValue_hint"
+                android:inputType="numberSigned|numberDecimal"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/addThreshold_threshold_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@+id/addThreshold_threshold_layout"
+            app:layout_constraintEnd_toEndOf="@+id/addThreshold_label1"
+            app:layout_constraintTop_toTopOf="@+id/addThreshold_threshold_layout" />
+
+        <TextView
+            android:id="@+id/addThreshold_label2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/addThreshold_greater_than"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="@+id/iv_range"
+            app:layout_constraintStart_toStartOf="@+id/iv_range"
+            app:layout_constraintTop_toBottomOf="@+id/addThreshold_threshold_layout" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/addThreshold_threshold_layout2"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/addThreshold_threshold_unit2"
+            app:layout_constraintStart_toStartOf="@+id/addThreshold_label2"
+            app:layout_constraintTop_toBottomOf="@+id/addThreshold_label2">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/addThreshold_threshold_value2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/addThreshold_thresholdValue_hint"
+                android:inputType="numberSigned|numberDecimal"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/addThreshold_threshold_unit2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@+id/addThreshold_threshold_layout2"
+            app:layout_constraintEnd_toEndOf="@+id/addThreshold_label2"
+            app:layout_constraintTop_toTopOf="@+id/addThreshold_threshold_layout2" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/addThreshold_addButton"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_marginTop="8dp"
+
+
+            android:text="@string/addThreshold_create"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addThreshold_threshold_layout2" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/addThreshold_cancelButton"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+
+            android:text="@string/addThreshold_cancel"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/addThreshold_addButton"
+            app:layout_constraintTop_toBottomOf="@+id/addThreshold_threshold_layout2" />
+
+
+        <!--<RadioGroup
+            android:id="@+id/addThreshold_comparisonGroup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:checkedButton="@+id/addThreshold_lessThanButton"
+            app:layout_constraintBottom_toTopOf="@+id/addThreshold_label2"
+            app:layout_constraintEnd_toEndOf="@+id/iv_range"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_range">
+
+            <RadioButton
+                android:id="@+id/addThreshold_lessThanButton"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:text="@string/comparison_lower"
+                android:layout_height="0dp" />
+
+            <RadioButton
+                android:id="@+id/addThreshold_biggerThanButton"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="0dp"
+                android:text="@string/comparison_graterEqual" />
+        </RadioGroup>-->
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

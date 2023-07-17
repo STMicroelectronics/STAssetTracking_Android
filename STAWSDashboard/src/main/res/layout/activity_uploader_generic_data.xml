@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".uploadData.uploader.UploaderGenericDataActivity">
+
+    <include
+        android:id="@+id/generic_uploader_progress"
+        layout="@layout/progress_bar_with_text"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+        <LinearLayout
+            android:id="@+id/generic_uploader_layout_registration"
+            android:gravity="center"
+            android:visibility="gone"
+            android:orientation="vertical"
+            android:background="@color/backgroundMainApp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/iv_generic_uploader_registration_result"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:src="@drawable/ic_check"/>
+
+        <TextView
+            android:id="@+id/tv_generic_uploader_registration_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginTop="8dp"
+            android:textSize="24sp"
+            android:text=""/>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

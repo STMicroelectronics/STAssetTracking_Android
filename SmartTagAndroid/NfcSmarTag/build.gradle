@@ -1,0 +1,92 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    namespace 'com.st.nfcSmarTag'
+    compileSdk 33
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    defaultConfig {
+        minSdk 26
+        targetSdk 33
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        all {
+            res.srcDirs += ['st_images']
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url "https://jitpack.io" } //need for mpchart
+}
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    implementation project(path: ':AssetTrackingThreshold')
+    implementation project(path: ':BlueSTSDK_GUI')
+    implementation project(path: ':SmarTagLibrary')
+    implementation project(path: ':STAWSDashboard')
+    implementation project(path: ':STAWSDashboard:STAWSData')
+    implementation project(path: ':STLogin')
+    implementation project(path: ':UI')
+
+    implementation 'com.android.support:multidex:2.0.1'
+    implementation group: 'androidx.appcompat', name: 'appcompat', version: "1.2.0"
+    implementation group: 'androidx.fragment', name: 'fragment-ktx', version: "1.2.5"
+    implementation group: 'androidx.cardview', name: 'cardview', version: "$rootProject.supportLibraryVersion"
+    implementation group: 'com.google.android.material', name: 'material', version: "1.4.0"
+    implementation group: 'androidx.preference', name: 'preference', version: "1.1.1"
+    implementation group: 'androidx.vectordrawable', name: 'vectordrawable', version: "$rootProject.supportVectorDrawableVersion"
+    implementation group: 'androidx.legacy', name: 'legacy-support-v4', version: "$rootProject.supportLibraryVersion"
+    implementation group: 'androidx.constraintlayout', name: 'constraintlayout', version: "2.1.4"
+    implementation group: 'androidx.lifecycle', name: 'lifecycle-runtime', version: "$rootProject.lifeCycleRuntimeVersion"
+    implementation group: 'androidx.lifecycle', name: 'lifecycle-extensions', version: "$rootProject.lifeCycleExtensionVersion"
+
+    implementation group: 'androidx.recyclerview', name:'recyclerview', version:"1.2.1"
+
+    testImplementation group: 'junit', name: 'junit', version: "$rootProject.junitVersion"
+
+    implementation 'com.google.code.gson:gson:2.9.1'
+
+    // MPAndroid Chart
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
+    //memory leak detector
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.9.1'
+
+    implementation 'joda-time:joda-time:2.10.13'
+
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+
+    androidTestImplementation "androidx.test:runner:1.4.0"
+    androidTestImplementation "androidx.test:rules:1.4.0"
+    androidTestImplementation "androidx.test.espresso:espresso-core:3.4.0"
+
+}

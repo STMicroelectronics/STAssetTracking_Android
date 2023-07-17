@@ -1,0 +1,31 @@
+<resources>
+    <string name="auth_granted" translatable="false">Authorization granted</string>
+    <string name="openid_logo_content_description" translatable="false">AppAuth Logo</string>
+    <string name="refresh_token" translatable="false">Refresh token</string>
+    <string name="access_token_expires_at" translatable="false">Access token expires at: %s</string>
+    <string name="no_access_token_returned" translatable="false">No access token returned</string>
+    <string name="no_refresh_token_returned" translatable="false">No refresh token returned</string>
+    <string name="refresh_token_returned" translatable="false">Refresh token returned</string>
+    <string name="no_id_token_returned" translatable="false">No ID token returned</string>
+    <string name="id_token_returned" translatable="false">ID token returned</string>
+    <string name="view_profile" translatable="false">View user info</string>
+    <string name="userinfo_profile_content_description" translatable="false">User profile picture</string>
+    <string name="login_hint_value" translatable="false">Account ID (e.g. test@example.com)</string>
+    <string name="account_id_description" translatable="false">The Account ID is optional. If specified, it is transmitted as a login_hint parameter in the authorization request.</string>
+    <string name="auth_options" translatable="false">Authorization options:</string>
+    <string name="browser_selector_label" translatable="false">Use browser:</string>
+    <string name="browser_icon_contentDescription" translatable="false">Browser app icon</string>
+    <string name="browser_appauth_default_label" translatable="false">AppAuth heuristic selection</string>
+    <string name="custom_tab_label" translatable="false">"%1$s (custom tab)"</string>
+    <string name="retry_label" translatable="false">Retry</string>
+    <string name="not_authorized" translatable="false">Not authorized</string>
+    <string name="start_authorization" translatable="false">Start authorization</string>
+    <string name="reauthorize" translatable="false">Reauthorize</string>
+    <string name="sign_out" translatable="false">Sign out</string>
+    <string name="no_access_token_expiry" translatable="false">Access time has no defined expiry</string>
+    <string name="access_token_expired" translatable="false">Access token has expired</string>
+    <string name="auth_settings" translatable="false">Authorization settings in use:</string>
+    <string name="use_pending_intents" translatable="false">Use PendingIntent\'s for completion</string>
+    <string name="certificate_not_present">Certificate Not present</string>
+
+</resources>

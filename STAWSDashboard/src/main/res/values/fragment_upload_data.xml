@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dataUpload_location">Get current location…</string>
+    <string name="dataUpload_uploadData">Upload Data…</string>
+    <string name="dataUpload_uploadDataComplete">Upload Data completed</string>
+    <string name="dataUpload_uploadDataError">Error uploading the data</string>
+</resources>

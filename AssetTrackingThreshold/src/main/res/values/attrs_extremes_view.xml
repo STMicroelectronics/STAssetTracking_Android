@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="extremeData_maxStr">Max:</string>
+    <string name="extremeData_minStr">Min:</string>
+
+    <declare-styleable name="ExtremeDataView">
+        <attr name="extremeDataUnit" format="string"/>
+        <attr name="extremeDataFormat" format="string"/>
+        <attr name="extremeDataImg" format="reference" />
+        <attr name="extremeHideMinValues" format="boolean"/>
+        <attr name="extremeHideMaxValues" format="boolean"/>
+    </declare-styleable>
+</resources>

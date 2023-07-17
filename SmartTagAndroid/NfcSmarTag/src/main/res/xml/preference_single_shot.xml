@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/singleShotPref_categoryTitle">
+    <EditTextPreference
+        android:key="singleShotPref_timeOutKey"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/singleShotPref_timeoutTitle" />
+    </PreferenceCategory>
+</PreferenceScreen>

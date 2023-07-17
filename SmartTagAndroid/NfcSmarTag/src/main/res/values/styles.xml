@@ -1,0 +1,23 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
+        <item name="colorSecondary">@color/colorAccent</item>
+        <item name="colorOnSecondary">@color/colorOnSecondary</item>
+    </style>
+
+    <style name="noAnimTheme" parent="AppTheme">
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+
+    <style name="AppPreferenceTheme" parent="AppTheme">
+        <item name="preferenceTheme"> @style/PreferenceThemeOverlay.v14.Material</item>
+    </style>
+
+    <dimen name="cardview_elevation">2dp</dimen>
+    <dimen name="cardview_radius">2dp</dimen>
+
+</resources>

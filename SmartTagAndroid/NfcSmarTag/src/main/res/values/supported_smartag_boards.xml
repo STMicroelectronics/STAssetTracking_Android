@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="board_smarTag_name">SmarTag 1</string>
+    <string name="board_smarTag_specific">STEVAL-SMARTAG1</string>
+    <string name="board_smarTag_desc">This smart and flexible NFC Tracker evaluation board with sensors includes a comprehensive software library and a sample application to monitor and log sensor data over NFC from an Android or iOS device.</string>
+
+    <string name="board_smarTag2_name">SmarTag 2</string>
+    <string name="board_smarTag2_specific">STEVAL-SMARTAG2</string>
+    <string name="board_smarTag2_desc">The STEVAL-SMARTAG2 is an NFC-enabled sensor node, which embeds inertial MEMS sensors and environmental sensors, an STM32 microcontroller, and a dynamic NFC tag for communication with NFC readers, such as tablets and smartphones.</string>
+
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="assetTracking_loginButton">Login</string>
+    <string name="assetTracking_registerButton">Create account</string>
+    <string name="assetTracking_loggingButton">Logging…</string>
+    <string name="assetTracking_invalidUserError">Invalid user name</string>
+    <string name="assetTracking_invalidPasswordError">Invalid password</string>
+    <string name="assetTracking_wrongCredentialsError">Wrong credentials</string>
+    <string name="assetTracking_loginError">Error during the login procedure</string>
+</resources>

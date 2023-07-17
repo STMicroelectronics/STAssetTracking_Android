@@ -1,0 +1,120 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        consumerProguardFiles 'proguard-rules.pro'
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "URL_DSH", '"https://dsh-assetracking.st.com/"'
+            buildConfigField "String", "AWS_ENDPOINT", '"{INSERT_PARAMETER}"'
+            buildConfigField "String", "AWS_REGION", '"{INSERT_PARAMETER}"'
+            buildConfigField "String", "AWS_HOST", '"{INSERT_PARAMETER}"'
+        }
+        debug {
+            buildConfigField "String", "URL_DSH", '"https://dsh-assetracking.st.com/"'
+            buildConfigField "String", "AWS_ENDPOINT", '"{INSERT_PARAMETER}"'
+            buildConfigField "String", "AWS_REGION", '"{INSERT_PARAMETER}"'
+            buildConfigField "String", "AWS_HOST", '"{INSERT_PARAMETER}"'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility rootProject.ext.javaVersion
+        targetCompatibility rootProject.ext.javaVersion
+    }
+    kotlinOptions {
+        jvmTarget = rootProject.ext.javaVersion.toString()
+        freeCompilerArgs += [
+                "-Xjvm-default=all",
+        ]
+    }
+    namespace 'com.st.assetTracking.dashboard'
+}
+
+dependencies {
+    implementation project(path: ':BlueSTSDK_GUI')
+    implementation project(path: ':SmarTagLibrary')
+    implementation project(path: ':STAWSDashboard:STAWSData')
+    implementation project(path: ':STAWSDashboard:STAWSDataUI')
+    implementation project(path: ':STLogin')
+    implementation project(path: ':UI')
+
+    implementation group: 'org.jetbrains.kotlinx', name: 'kotlinx-coroutines-core', version: "$rootProject.kotlin_coroutineVersion"
+    implementation group: 'org.jetbrains.kotlinx', name: 'kotlinx-coroutines-android', version: "$rootProject.kotlin_coroutineVersion"
+
+    implementation group: 'androidx.appcompat', name: 'appcompat', version: "$rootProject.androidx_appCompatVersion"
+    implementation group: 'androidx.preference', name: 'preference-ktx', version: "$rootProject.androidx_preference"
+    implementation group: 'androidx.constraintlayout', name: 'constraintlayout', version: "$rootProject.androidx_constraintLayoutVersion"
+    implementation "androidx.recyclerview:recyclerview:$rootProject.androidx_recycleViewVersion"
+    implementation "androidx.cardview:cardview:$rootProject.androidx_cardViewVersion"
+    implementation group: 'androidx.fragment', name: 'fragment-ktx', version: "$rootProject.androidx_fragmentKtx"
+    implementation group: 'androidx.activity', name: 'activity-ktx', version: "$rootProject.androidx_activityKtx"
+    implementation group: 'androidx.lifecycle', name: 'lifecycle-livedata-ktx', version: "$rootProject.androidx_lifecycleKtx"
+    implementation group: 'androidx.lifecycle', name: 'lifecycle-viewmodel-ktx', version: "$rootProject.androidx_lifecycleKtx"
+    implementation group: 'androidx.viewpager2', name: 'viewpager2', version: "$rootProject.androidx_viewPager2"
+    implementation group: 'com.google.android.material', name: 'material', version: "$rootProject.androidx_materialVersion"
+
+    implementation group: 'androidx.room', name: 'room-runtime', version: "$rootProject.androidx_roomVersion"
+    implementation group: 'androidx.room', name: 'room-ktx', version: "$rootProject.androidx_roomVersion"
+    kapt group:'androidx.room', name:'room-compiler', version: "$androidx_roomVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    //Tmp for kotlin 1.7 and room 2.4.2 waiting room 2.4.3
+    //kapt "org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.5.0"
+
+    // JSON parsing
+    implementation group: 'com.beust', name: 'klaxon', version: '5.6'
+
+    // Lifecycle management
+    implementation group: 'androidx.lifecycle', name: 'lifecycle-extensions', version: "$rootProject.androidx_lifecycleExtVersion"
+
+    //use for Aws Login
+    implementation group: 'com.amazonaws', name: 'aws-android-sdk-cognitoidentityprovider', version: "$rootProject.awsVersion"
+    //use for notification
+    implementation group: 'com.amazonaws', name: 'aws-android-sdk-core', version: "$rootProject.awsVersion"
+    implementation group: 'com.amazonaws', name: 'aws-android-sdk-sns', version: "$rootProject.awsVersion"
+    implementation group: 'com.google.firebase', name: 'firebase-messaging', version: "$rootProject.firebase_messagingVersion"
+
+    //Login dependencies
+    implementation 'net.openid:appauth:0.11.1'
+    implementation 'joda-time:joda-time:2.11.1'
+    implementation 'com.github.babbel:okhttp-aws-signer:1.0.1'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.okio:okio:3.2.0'
+
+
+    //use to register a new device
+    implementation group: 'com.squareup.retrofit2', name: 'retrofit', version: "$rootProject.retrofitVersion"
+    implementation group: 'com.squareup.retrofit2', name: 'converter-gson', version: "$rootProject.retrofitVersion"
+    implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.3'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
+
+    // MPAndroid Chart
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
+    implementation 'com.auth0:java-jwt:4.0.0'
+
+    implementation 'org.ocpsoft.prettytime:prettytime:5.0.4.Final'
+
+    implementation 'com.github.marlonlom:timeago:4.0.3'
+}

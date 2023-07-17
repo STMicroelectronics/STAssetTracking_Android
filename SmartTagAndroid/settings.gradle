@@ -1,0 +1,16 @@
+include ':app'
+include ':SmarTagLibrary'
+include ':BlueSTSDK'
+include ':BlueSTSDK_GUI'
+include ":DataBases"
+include ":STLogin"
+include ':EtnaAnalytics'
+include ':STAWSDashboard'
+include ':STAWSDashboard:STAWSDataUI'
+include ':STAWSDashboard:STAWSData'
+include ':UI'
+
+project(':BlueSTSDK').projectDir = new File('BlueSTSDK/BlueSTSDK')
+project(":STLogin").projectDir = new File(rootDir, 'STUtility/STLogin/STLogin')
+project(":DataBases").projectDir = new File(rootDir, 'STUtility/DataBases')
+project(":UI").projectDir = new File(rootDir, 'STUtility/UI')

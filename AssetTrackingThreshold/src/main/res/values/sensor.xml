@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="sensor_temperature_name">Temperature</string>
+    <string name="sensor_temperature">Temperature</string>
+    <string name="settings_humidity">Humidity</string>
+    <string name="settings_pressure">Pressure</string>
+    <string name="settings_accelerometer">Accelerometer</string>
+    <string name="settings_orientation">Orientation Events</string>
+    <string name="sensor_tilt_name">Tilt</string>
+    <string name="sensor_pressure_name">Pressure</string>
+    <string name="data_temperature_name">Temperature</string>
+    <string name="sensor_humidity_name">Humidity</string>
+    <string name="data_acceleration_name">Acceleration</string>
+
+    <string name="sensor_orientation_name">6D Orientation</string>
+    <string name="sensor_wakeUp_name">Wake Up</string>
+
+    <string name="sensor_wakeup_unit">g</string>
+    <string name="sensor_pressure_unit">mbar</string>
+    <string name="sensor_humidity_unit">%RH</string>
+    <string name="sensor_temperature_unit">°C</string>
+    <string name="sensor_without_unit"></string>
+
+    <string name="confSensor_floatFormat"> %.1f</string>
+    <string name="confSensor_shortFormat"> %d</string>
+    <string name="data_vibration_format">%.0f</string>
+    <string name="data_pressure_format">%.1f</string>
+    <string name="data_humidity_format">%.0f</string>
+    <string name="data_temperature_format">%.0f</string>
+
+    <string name="comparison_lower">Lesser</string>
+    <string name="comparison_graterEqual">Greater</string>
+
+
+</resources>

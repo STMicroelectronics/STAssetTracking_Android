@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/item_orientation_sensor_icon"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/sensor_orientation_icon" />
+
+    <TextView
+        android:id="@+id/item_orientation_sensor_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/sensor_orientation_name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        app:layout_constraintBottom_toTopOf="@+id/item_orientation_value"
+        app:layout_constraintEnd_toStartOf="@+id/item_orientation_icon"
+        app:layout_constraintStart_toEndOf="@+id/item_orientation_sensor_icon"
+        app:layout_constraintTop_toTopOf="@+id/item_orientation_sensor_icon" />
+
+    <TextView
+        android:id="@+id/item_orientation_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        tools:text="Bottom"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+        app:layout_constraintBottom_toBottomOf="@+id/item_orientation_sensor_icon"
+        app:layout_constraintEnd_toStartOf="@+id/item_orientation_icon"
+        app:layout_constraintStart_toStartOf="@+id/item_orientation_sensor_name"
+        app:layout_constraintTop_toBottomOf="@+id/item_orientation_sensor_name" />
+
+    <ImageView
+        android:id="@+id/item_orientation_icon"
+        android:layout_width="48dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/item_orientation_value"
+        app:layout_constraintDimensionRatio="h,1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/item_orientation_sensor_name"
+        app:layout_constraintTop_toTopOf="@+id/item_orientation_sensor_name"
+        tools:srcCompat="@drawable/sensor_acc_event_orientation_bottom" />
+</androidx.constraintlayout.widget.ConstraintLayout>
