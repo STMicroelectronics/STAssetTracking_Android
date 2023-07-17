@@ -1,0 +1,60 @@
+apply plugin: 'com.android.library'
+
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility rootProject.ext.javaVersion
+        targetCompatibility rootProject.ext.javaVersion
+    }
+    kotlinOptions {
+        jvmTarget = rootProject.ext.javaVersion.toString()
+    }
+
+    sourceSets {
+        all {
+            res.srcDirs += ['st_images']
+        }
+    }
+}
+
+
+dependencies {
+
+    implementation project(path: ':BlueSTSDK')
+    implementation project(path: ':BlueSTSDK_Gui')
+
+    implementation "androidx.appcompat:appcompat:$rootProject.androidx_appCompatVersion"
+    implementation "com.google.android.material:material:$rootProject.androidx_materialVersion"
+    implementation "androidx.recyclerview:recyclerview:$rootProject.androidx_recycleViewVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.androidx_constraintLayoutVersion"
+
+
+    // Lifecycle components
+    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.androidx_lifecycleExtVersion"
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:$rootProject.androidx_lifecycleExtVersion"
+
+    testImplementation group: 'junit', name: 'junit', version: "$rootProject.junitVersion"
+
+    androidTestImplementation "androidx.test:runner:$rootProject.androidx_runnerVersion"
+    androidTestImplementation "androidx.test:rules:$rootProject.androidx_rulesVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.androidx_espressoVersion"
+}

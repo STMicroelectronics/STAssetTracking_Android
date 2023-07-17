@@ -1,0 +1,67 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdkVersion 33
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility javaVersion
+        targetCompatibility javaVersion
+    }
+    kotlinOptions {
+        jvmTarget = rootProject.ext.javaVersion.toString()
+    }
+
+    sourceSets {
+        all {
+            res.srcDirs += [
+                    'ext_configuration_drawable',
+                    'ext_configuration_layout',
+                    'ext_configuration_values'
+            ]
+        }
+    }
+    namespace 'com.st.demos'
+}
+
+dependencies {
+
+    implementation project(path: ':BlueSTSDK')
+    implementation project(path: ':BlueSTSDK_GUI')
+    implementation project(path: ':STAWSDashboard')
+    implementation project(path: ':UI')
+
+    api "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
+    implementation group: 'androidx.lifecycle', name: 'lifecycle-extensions', version: '2.2.0'
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "androidx.core:core-ktx:$rootProject.core_ktx"
+    implementation group: 'androidx.appcompat', name: 'appcompat', version: "$rootProject.androidx_appCompatVersion"
+    implementation group: 'com.google.android.material', name: 'material', version: "$rootProject.androidx_materialVersion"
+    testImplementation "junit:junit:$rootProject.junitVersion"
+
+    implementation group: 'com.google.code.gson', name: 'gson', version: gsonVersion
+}

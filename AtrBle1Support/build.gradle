@@ -1,0 +1,88 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "ARROWHEAD_BASE_URL", '"{INSERT_PARAMETER}"'
+            buildConfigField "String", "DTDL_DB_BASE_URL", "\"https://raw.githubusercontent.com/STMicroelectronics/appconfig/release/\""
+            buildConfigField "String", "DTDL_DB_BASE_URL_BETA", "\"https://raw.githubusercontent.com/SW-Platforms/appconfig/release/\""
+        }
+        debug {
+            buildConfigField "String", "ARROWHEAD_BASE_URL", '"{INSERT_PARAMETER}"'
+            buildConfigField "String", "DTDL_DB_BASE_URL", "\"https://raw.githubusercontent.com/STMicroelectronics/appconfig/release/\""
+            buildConfigField "String", "DTDL_DB_BASE_URL_BETA", "\"https://raw.githubusercontent.com/SW-Platforms/appconfig/release/\""
+        }
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = rootProject.ext.javaVersion.toString()
+        freeCompilerArgs += [
+                "-Xjvm-default=all",
+        ]
+    }
+
+    sourceSets {
+        all {
+            res.srcDirs += ['st_images']
+        }
+    }
+    namespace 'com.st.assetTracking.atrBle1'
+
+}
+
+dependencies {
+    implementation project(path: ':BlueSTSDK')
+    implementation project(path: ':BlueSTSDK_GUI')
+    implementation project(path: ':AssetTrackingThreshold')
+    implementation project(path: ':STAWSDashboard')
+    implementation project(path: ':STAWSDashboard:STAWSData')
+    implementation project(path: ':STAWSDashboard:STAWSDataUI')
+    implementation project(path: ':STLogin')
+    implementation project(path: ':Demos')
+    implementation project(path: ':UI')
+    implementation project(path: ':DataBases')
+    implementation project(path: ':NfcSmarTag')
+    implementation project(path: ':SmarTagLibrary')
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlin_coroutineVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlin_coroutineVersion"
+
+    implementation group: 'androidx.appcompat', name: 'appcompat', version: "$rootProject.androidx_appCompatVersion"
+    implementation group: 'com.google.android.material', name: 'material', version: "$rootProject.androidx_materialVersion"
+    implementation group: 'androidx.fragment', name: 'fragment-ktx', version: "$rootProject.androidx_fragmentKtx"
+    implementation group: 'androidx.viewpager2', name: 'viewpager2', version: "$rootProject.androidx_viewPager2"
+
+    implementation group: 'androidx.recyclerview', name: 'recyclerview', version: "$rootProject.androidx_recycleViewVersion"
+    implementation group: 'androidx.constraintlayout', name: 'constraintlayout', version: "$rootProject.androidx_constraintLayoutVersion"
+    implementation group: 'androidx.lifecycle', name: 'lifecycle-extensions', version: "$rootProject.androidx_lifecycleExtVersion"
+    implementation group: 'androidx.lifecycle', name: 'lifecycle-livedata-ktx', version: "$rootProject.androidx_lifecycleKtx"
+    implementation group: 'androidx.lifecycle', name: 'lifecycle-viewmodel-ktx', version: "$rootProject.androidx_lifecycleKtx"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    testImplementation "junit:junit:$rootProject.junitVersion"
+
+    implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
+    implementation group: 'com.squareup.retrofit2', name: 'retrofit', version: '2.9.0'
+}

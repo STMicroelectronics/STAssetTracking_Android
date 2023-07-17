@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/device_settings"
+        android:icon="@drawable/ic_settings_black"
+        android:title="@string/deviceDetails_settings" />
+
+    <item
+        android:id="@+id/device_extremes"
+        android:enabled="false"
+        android:icon="@drawable/ic_extremes"
+        android:title="@string/deviceDetails_extremes" />
+
+    <item
+        android:id="@+id/device_data"
+        android:enabled="false"
+        android:icon="@drawable/ic_charts"
+        android:title="@string/deviceDetails_data" />
+
+</menu>

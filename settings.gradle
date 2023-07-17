@@ -1,7 +1,32 @@
-include ':BlueSTSDK',
-        ':BlueSTSDK_Gui',
-        ':Sigfox',
-        ":app"
+include ':app'
+include ':AssetTrackingThreshold'
+
+include ':AtrBle1Support'
+
+include ':NfcSmarTag'
+include ':SmarTagLibrary'
+
+include ':lora'
+include ':sigfox'
+
+include ':BlueSTSDK'
+include ':BlueSTSDK_GUI'
+
+include ":STLogin"
+include ':STAWSDashboard'
+include ':STAWSDashboard:STAWSDataUI'
+include ':STAWSDashboard:STAWSData'
+
+include ':UI'
+include ":DataBases"
+
+include ':Polaris'
+
+include ':Demos'
 
 project(':BlueSTSDK').projectDir = new File('BlueSTSDK/BlueSTSDK')
-
+project(":STLogin").projectDir = new File(rootDir, 'STUtility/STLogin/STLogin')
+project(":DataBases").projectDir = new File(rootDir, 'STUtility/DataBases')
+project(":UI").projectDir = new File(rootDir, 'STUtility/UI')
+project(":NfcSmarTag").projectDir = new File(rootDir, 'SmartTagAndroid/NfcSmarTag')
+project(":SmarTagLibrary").projectDir = new File(rootDir, 'SmartTagAndroid/SmarTagLibrary')

@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:orientation="vertical">
+
+        <!--Toolbar-->
+        <!--<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <ImageButton
+                android:id="@+id/back_arrow_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_back"
+                style="?attr/borderlessButtonStyle"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="8dp"
+                android:fontFamily="sans-serif-light"
+                android:text="ASTRA"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_marginLeft="8dp" />
+            <ImageButton
+                android:id="@+id/ext_configuration_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_ext_config_icon"
+                android:layout_marginLeft="8dp"
+                style="?attr/borderlessButtonStyle"/>
+        </LinearLayout>-->
+
+        <TextView
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cloud Sync Settings"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_weight="1"
+                android:id="@+id/registerDevice_deviceNameLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/register_ble_device_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:text="5"
+                    android:hint="Sampling Time (s)"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_polaris_cloud_sync"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="START SYNC"
+                android:layout_gravity="center"
+                style="?attr/borderlessButtonStyle" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Realtime Sensors"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:layout_marginRight="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/thermometerCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/STStyleCardView"
+                android:visibility="visible"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/thermometerImage"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="8dp"
+                        android:src="@drawable/sensor_temperature_icon" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <!--<androidx.appcompat.widget.SwitchCompat
+                            android:id="@+id/thermometerSwitch"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:text="℃/℉"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            app:switchPadding="4dp" />-->
+
+                        <TextView
+                            android:id="@+id/thermometerText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_margin="8dp"
+                            android:text="--- No data Available ---"
+                            android:textSize="13sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/barometerCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/STStyleCardView"
+                app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontal2"
+                app:layout_constraintTop_toTopOf="@+id/guidelineHorizontal1"
+                tools:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/barometerImage"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="8dp"
+                        android:src="@drawable/sensor_pressure_icon" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/barometerText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_margin="8dp"
+                            android:text="--- No data Available ---"
+                            android:textSize="13sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/humidityCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/STStyleCardView"
+                app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontal3"
+                app:layout_constraintTop_toTopOf="@+id/guidelineHorizontal2"
+                tools:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/humidityImage"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="8dp"
+                        android:src="@drawable/sensor_humidity_icon" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:id="@+id/humidityText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:text="--- No data Available ---"
+                            android:textSize="13sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/accelerometerCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/STStyleCardView"
+                app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontal3"
+                app:layout_constraintTop_toTopOf="@+id/guidelineHorizontal2"
+                tools:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/accImage"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="8dp"
+                        android:src="@drawable/sensor_type_accelerometer" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:id="@+id/accText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:text="--- No data Available ---"
+                            android:textSize="13sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/gyroCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/STStyleCardView"
+                app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontal3"
+                app:layout_constraintTop_toTopOf="@+id/guidelineHorizontal2"
+                tools:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/gyroImage"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="8dp"
+                        android:src="@drawable/sensor_type_gyroscope" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:id="@+id/gyroText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:text="--- No data Available ---"
+                            android:textSize="13sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/gnssCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/STStyleCardView"
+                app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontal3"
+                app:layout_constraintTop_toTopOf="@+id/guidelineHorizontal2"
+                tools:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/gnssImage"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="8dp"
+                        android:src="@drawable/ic_gnss_gps_coordinates" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:id="@+id/gnssText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:text="--- No data Available ---"
+                            android:textSize="13sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                            android:id="@+id/gnss_locate_on_map"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:fabSize="mini"
+                            android:layout_margin="8dp"
+                            android:enabled="false"
+                            android:src="@drawable/ic_gps_fixed_24"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Map"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:layout_marginRight="8dp" />
+
+            <WebView
+                android:id="@+id/gnss_webview"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>

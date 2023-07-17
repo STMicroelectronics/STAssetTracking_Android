@@ -236,5 +236,15 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+BlueSTSDK
+BlueSTSDK_Gui
+STAWSDashboard
+STAWSDataUI
+STAWSData
+EtnaAnalytics
+STLogin
+UI
+STUtility
+SmartTagAndroid
+AssetTrackingThreshold
 
-# End of https://www.gitignore.io/api/java,macos,kotlin,android,androidstudio

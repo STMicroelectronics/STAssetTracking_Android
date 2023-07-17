@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.google.android.gms.oss-licenses-plugin'
+apply plugin: 'com.google.gms.google-services'
 
 static def getDate() {
     def date = new Date()
@@ -8,10 +9,9 @@ static def getDate() {
     return formattedDate
 }
 
-
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdkVersion rootProject.compileSdkVersion
+    buildToolsVersion '30.0.3'
 
     signingConfigs {
         config {
@@ -22,21 +22,35 @@ android {
         }
     }
 
+    buildFeatures {
+        viewBinding true
+    }
+
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
-        versionCode 2
-        versionName '1.0.1'
+        versionCode 88
+        versionName '3.4.0'
+
         applicationId "com.st.assetTracking"
         targetSdkVersion rootProject.ext.targetSdkVersion
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
+
+        // Make sure this is consistent with the redirect URI used in res/raw/auth_config.json,
+        // or specify additional redirect URIs in AndroidManifest.xml
+        manifestPlaceholders = [
+                'appAuthRedirectScheme': 'stassettracking'
+        ]
+
     }
+
+
     buildTypes {
         release {
-            //signingConfig signingConfigs.config
-            minifyEnabled true
-            shrinkResources true
+            //esigningConfig signingConfigs.config
+            minifyEnabled false
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
@@ -46,8 +60,14 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility 1.8
-        targetCompatibility 1.8
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+        freeCompilerArgs += [
+                "-Xjvm-default=all",
+        ]
     }
 
     sourceSets {
@@ -55,20 +75,67 @@ android {
             res.srcDirs += ['st_images']
         }
     }
+    lint {
+        abortOnError false
+        checkReleaseBuilds false
+    }
+    namespace 'com.st.assetTracking'
 }
 
 ext {
-    leakcanaryVersion = '1.6.3'
+    leakcanaryVersion = '2.7'
 }
 
 dependencies {
 
-    implementation project(path: ':Sigfox')
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation project(path: ':sigfox')
+    implementation project(path: ':lora')
+    implementation project(path: ':AtrBle1Support')
+    implementation project(path: ':Polaris')
+    implementation project(path: ':NfcSmarTag')
+    implementation project(path: ':BlueSTSDK')
+    implementation project(path: ':SmarTagLibrary')
+    implementation project(path: ':STAWSDashboard')
+    implementation project(path: ':BlueSTSDK_GUI')
+    implementation project(path: ':STLogin')
+    implementation project(path: ':UI')
+    implementation project(path: ':STAWSDashboard:STAWSData')
+    implementation project(path: ':STAWSDashboard:STAWSDataUI')
+
+    implementation group: 'androidx.fragment', name: 'fragment-ktx', version: "$rootProject.androidx_fragmentKtx"
+    implementation group: 'androidx.activity', name: 'activity-ktx', version: "$rootProject.androidx_activityKtx"
+    implementation "androidx.appcompat:appcompat:$rootProject.androidx_appCompatVersion"
+    implementation "com.google.android.material:material:$rootProject.androidx_materialVersion"
+    implementation "androidx.recyclerview:recyclerview:$rootProject.androidx_recycleViewVersion"
+    implementation "androidx.cardview:cardview:$rootProject.androidx_cardViewVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.androidx_constraintLayoutVersion"
+
+    //generate the activity with the license used fro this app
+    implementation 'com.google.android.gms:play-services-oss-licenses:17.0.0'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    implementation 'androidx.browser:browser:1.4.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    androidTestImplementation "androidx.test.ext:junit:$rootProject.androidx_junitVersion"
+    androidTestImplementation "androidx.test:runner:$rootProject.androidx_runnerVersion"
+    androidTestImplementation "androidx.test:rules:$rootProject.androidx_rulesVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.androidx_espressoVersion"
+
+    androidTestImplementation group: 'androidx.test.espresso', name: 'espresso-intents', version: "$rootProject.androidx_espressoVersion"
 
     //memory leak detector
-    debugImplementation group: 'com.squareup.leakcanary', name: 'leakcanary-android', version: "$leakcanaryVersion"
-    releaseImplementation group: 'com.squareup.leakcanary', name: 'leakcanary-android-no-op', version: "$leakcanaryVersion"
-    testImplementation group: 'com.squareup.leakcanary', name: 'leakcanary-android-no-op', version: "$leakcanaryVersion"
+    debugImplementation group: 'com.squareup.leakcanary', name: 'leakcanary-android', version: '2.7'
 
+    implementation group: 'com.squareup.retrofit2', name: 'converter-gson', version: "$rootProject.retrofitVersion"
+
+    //use for notification
+    implementation group: 'com.amazonaws', name: 'aws-android-sdk-core', version: "$rootProject.awsVersion"
+    implementation group: 'com.amazonaws', name: 'aws-android-sdk-sns', version: "$rootProject.awsVersion"
+    implementation group: 'com.google.firebase', name: 'firebase-messaging', version: "$rootProject.firebase_messagingVersion"
+
+    implementation 'com.github.babbel:okhttp-aws-signer:1.0.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.1'
+
+    implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
 }

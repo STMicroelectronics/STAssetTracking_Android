@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_logEnabledSwitch">Idle</string>
+    <string name="settings_sensorUpgradeHint">Sampling Interval (min)</string>
+    <string name="settings_menu_save">Save</string>
+    <string name="settings_save_completeSuccess">New settings saved</string>
+    <string name="settings_save_completeError">Error saving the new settings</string>
+</resources>

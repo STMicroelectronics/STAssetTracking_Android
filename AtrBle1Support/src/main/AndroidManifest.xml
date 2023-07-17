@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <activity
+            android:name=".sensorTileBoxPRO.dumpLog.BleSTBoxProDiscoveryForDumpLogActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sensorTileBoxPRO.dumpLog.BleSTBoxProDumpLogActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sensorTileBox.provisioning.BleDiscoveryForProvisioning"
+            android:noHistory="true" />
+        <activity
+            android:name=".sensorTileBox.provisioning.BleProvisioningDevice"
+            android:noHistory="true" />
+        <activity
+            android:name=".sensorTileBoxPRO.provisioning.BleSTBoxProDiscoveryForProvisioning"
+            android:noHistory="true" />
+        <activity
+            android:name=".sensorTileBoxPRO.provisioning.BleSTBoxProProvisioningDevice"
+            android:noHistory="true" /> <!-- <activity android:name=".ExtremesFragment" /> -->
+        <activity
+            android:name=".sensorTileBox.AtrBleDeviceDetails"
+            android:label="@string/deviceDetails_title"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".sensorTileBox.AtrBleMainActivity"
+            android:label="@string/atrBleMain_title" />
+    </application>
+
+</manifest>

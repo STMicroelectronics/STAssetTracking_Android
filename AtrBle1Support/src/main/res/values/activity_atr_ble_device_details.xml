@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="deviceDetails_title">Device details</string>
+    <string name="deviceDetails_settings">Settings</string>
+    <string name="deviceDetails_extremes">Extremes</string>
+    <string name="deviceDetails_data">Samples</string>
+</resources>

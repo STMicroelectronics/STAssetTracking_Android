@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="nodeList_stbox_pinTitle" tools:ignore="ExtraTranslation">Pin Required</string>
+    <string name="nodeList_stbox_pinDesc" tools:ignore="ExtraTranslation">The default pin for the connection is 123456</string>
+</resources>

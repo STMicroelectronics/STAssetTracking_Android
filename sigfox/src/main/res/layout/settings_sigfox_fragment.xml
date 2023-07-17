@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingsSigfoxFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvDeviceInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="2dp"
+                    app:cardElevation="2dp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_margin="8dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="BLE Device Info"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+                        <TextView
+                            android:id="@+id/settings_uidLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:text="Unknown"/>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvSamplingOptions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="2dp"
+                    app:cardElevation="2dp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cvDeviceInfo">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_margin="8dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Options"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:id="@+id/settings_sampling_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:hint="@string/settings_sensorUpgradeHint"
+                            app:layout_constraintBottom_toTopOf="@+id/settings_content_loading_bar"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/settings_sampling_value"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:singleLine="true" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:id="@+id/settings_cloud_sync_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Cloud Sync interval (min)">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/settings_cloud_sync_value"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:singleLine="true" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!--<androidx.cardview.widget.CardView
+                    android:id="@+id/cvRecordingData"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="2dp"
+                    app:cardElevation="2dp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cvSamplingOptions">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Cloud Sync interval (min)"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>-->
+
+
+                <androidx.core.widget.ContentLoadingProgressBar
+                    android:id="@+id/settings_content_loading_bar"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:indeterminate="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cvSamplingOptions" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvSensorToMonitor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="2dp"
+                    app:cardElevation="2dp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cvSamplingOptions">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_margin="8dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Sensors to Monitor"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+                            <ImageView
+                                android:id="@+id/iv_info_tresholds"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right|center_vertical"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:foregroundGravity="center|right"
+                                app:srcCompat="@drawable/ic_info_full_circle" />
+
+                        </LinearLayout>
+                        <com.st.assetTracking.atrBle1.sensorTileBox.settings.BleSensorSettingsView
+                            android:id="@+id/settingsPressureConf"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:configureSensorImg = "@drawable/sensor_pressure_icon"
+                            app:configureSensorName= "@string/settings_pressure"
+                            app:configureSensorUnit= "@string/data_pressure_unit"/>
+
+                        <com.st.assetTracking.atrBle1.sensorTileBox.settings.BleSensorSettingsView
+                            android:id="@+id/settingsTemperatureConf"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:configureSensorImg = "@drawable/sensor_temperature_icon"
+                            app:configureSensorName= "Temperature"
+                            app:configureSensorUnit= "@string/data_temperature_unit"/>
+
+                        <com.st.assetTracking.atrBle1.sensorTileBox.settings.BleSensorSettingsView
+                            android:id="@+id/settingsHumidityConf"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:configureSensorImg = "@drawable/sensor_humidity_icon"
+                            app:configureSensorName= "@string/settings_humidity"
+                            app:configureSensorUnit= "@string/data_humidity_unit"/>
+
+                        <com.st.assetTracking.atrBle1.sensorTileBox.settings.BleTiltSettingsView
+                            android:id="@+id/settingsTiltConf"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:configureSensorImg = "@drawable/sensor_acc_event_tilt"
+                            app:configureSensorName= "Tilt"
+                            app:configureSensorUnit= "None"/>
+                        <com.st.assetTracking.atrBle1.sensorTileBox.settings.BleWakeUpSettingsView
+                            android:id="@+id/settingsWakeUpConf"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:configureSensorImg = "@drawable/sensor_wake_up_icon"
+                            app:configureSensorName= "Wake Up"
+                            app:configureSensorUnit= "g"/>
+                        <com.st.assetTracking.atrBle1.sensorTileBox.settings.BleOrientationSettingsView
+                            android:id="@+id/settingsOrientationConf"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:configureSensorImg = "@drawable/sensor_orientation_icon"
+                            app:configureSensorName= "Orientation"
+                            app:configureSensorUnit= "None"/>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fb_save_sigfox_config"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        app:backgroundTint="#FFD300"
+        app:srcCompat="@drawable/ic_save"
+        app:tint="#001C51"/>
+
+    <!--<com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/settings_add_threshold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@drawable/ic_save_white_24dp" />-->
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

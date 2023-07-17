@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <usb-device vendor-id="5840" product-id="2174" /> <!-- 0x087e: FT232R -->
+    <usb-device vendor-id="1155" product-id="22336" /> <!-- 0x5740: ST-LINK -->
+    <usb-device vendor-id="1155" product-id="14155" /> <!-- 0x374B: IoT01A1 -->
+</resources>

@@ -1,7 +1,6 @@
 apply plugin: 'com.android.library'
 
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -14,6 +13,7 @@ android {
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
     }
+
     buildTypes {
         release {
             minifyEnabled true
@@ -21,40 +21,59 @@ android {
         }
     }
 
-    compileOptions {
-        sourceCompatibility 1.8
-        targetCompatibility 1.8
+    buildFeatures {
+        viewBinding true
     }
+
+    compileOptions {
+        sourceCompatibility rootProject.ext.javaVersion
+        targetCompatibility rootProject.ext.javaVersion
+    }
+    kotlinOptions {
+        jvmTarget = rootProject.ext.javaVersion.toString()
+        freeCompilerArgs += [
+                "-Xjvm-default=all",
+        ]
+    }
+
 
     sourceSets {
         all {
             res.srcDirs += ['st_images']
         }
     }
+    namespace 'com.st.assetTracking.sigfox'
 }
 
 
 dependencies {
 
     implementation project(path: ':BlueSTSDK')
-    implementation project(path: ':BlueSTSDK_Gui')
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation project(path: ':BlueSTSDK_GUI')
+    implementation project(path: ':AtrBle1Support')
+    implementation project(path: ':AssetTrackingThreshold')
 
     implementation group: 'androidx.appcompat', name: 'appcompat', version: "$rootProject.androidx_appCompatVersion"
+    implementation group: 'androidx.fragment', name: 'fragment-ktx', version: "$androidx_fragmentKtx"
     implementation group: 'com.google.android.material', name: 'material', version: "$rootProject.androidx_materialVersion"
 
     implementation group: 'androidx.recyclerview', name:'recyclerview', version:"$rootProject.androidx_recycleViewVersion"
     implementation group: 'androidx.constraintlayout', name: 'constraintlayout', version: "$rootProject.androidx_constraintLayoutVersion"
-    implementation group: 'androidx.lifecycle', name: 'lifecycle-extensions', version: "$rootProject.androidx_lifecycleExtVersion"
 
     // Lifecycle components
     implementation group: 'androidx.lifecycle', name: 'lifecycle-extensions', version: "$rootProject.androidx_lifecycleExtVersion"
+
+    implementation group:'androidx.localbroadcastmanager', name:'localbroadcastmanager', version:"$rootProject.androidx_localBroadcastVersion"
+
 
     testImplementation "junit:junit:$rootProject.junitVersion"
 
     androidTestImplementation "junit:junit:$rootProject.junitVersion"
     androidTestImplementation "org.mockito:mockito-core:$rootProject.mockitoVersion"
+    androidTestImplementation group:'androidx.test.ext', name:'junit', version:"$rootProject.androidx_junitVersion"
     androidTestImplementation group:'androidx.test', name:'runner', version:"$rootProject.androidx_runnerVersion"
     androidTestImplementation group:'androidx.test', name:'rules', version:"$rootProject.androidx_rulesVersion"
     androidTestImplementation group:'androidx.test.espresso', name: 'espresso-core', version:"$rootProject.androidx_espressoVersion"
+    androidTestImplementation group: 'androidx.test.espresso', name: 'espresso-contrib', version: "$rootProject.androidx_espressoVersion"
+
 }

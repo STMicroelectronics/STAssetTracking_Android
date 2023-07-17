@@ -1,0 +1,70 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    buildFeatures {
+        viewBinding true
+    }
+    compileOptions {
+        sourceCompatibility rootProject.ext.javaVersion
+        targetCompatibility rootProject.ext.javaVersion
+    }
+    kotlinOptions {
+        jvmTarget = rootProject.ext.javaVersion.toString()
+    }
+    namespace 'com.st.assetTracking.lora'
+}
+
+dependencies {
+
+    implementation project(path: ':STAWSDashboard:STAWSData')
+    implementation project(path: ':STAWSDashboard:STAWSDataUI')
+    implementation project(path: ':STAWSDashboard')
+    implementation project(path: ':STLogin')
+
+    implementation group: 'androidx.appcompat', name: 'appcompat', version: "$rootProject.androidx_appCompatVersion"
+    implementation group: 'androidx.fragment', name: 'fragment-ktx', version: "$androidx_fragmentKtx"
+    implementation group: 'com.google.android.material', name: 'material', version: "$rootProject.androidx_materialVersion"
+
+    // Lifecycle components
+    implementation group: 'androidx.lifecycle', name: 'lifecycle-extensions', version: "$rootProject.androidx_lifecycleExtVersion"
+
+    testImplementation "junit:junit:$rootProject.junitVersion"
+
+    androidTestImplementation "junit:junit:$rootProject.junitVersion"
+    androidTestImplementation "org.mockito:mockito-core:$rootProject.mockitoVersion"
+    androidTestImplementation group:'androidx.test.ext', name:'junit', version:"$rootProject.androidx_junitVersion"
+    androidTestImplementation group:'androidx.test', name:'runner', version:"$rootProject.androidx_runnerVersion"
+    androidTestImplementation group:'androidx.test', name:'rules', version:"$rootProject.androidx_rulesVersion"
+    androidTestImplementation group:'androidx.test.espresso', name: 'espresso-core', version:"$rootProject.androidx_espressoVersion"
+    androidTestImplementation group: 'androidx.test.espresso', name: 'espresso-contrib', version: "$rootProject.androidx_espressoVersion"
+
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "androidx.core:core-ktx:$rootProject.core_ktx"
+    implementation group: 'androidx.appcompat', name: 'appcompat', version: "$rootProject.androidx_appCompatVersion"
+    implementation "com.google.android.material:material:$androidx_materialVersion"
+    implementation group: 'androidx.constraintlayout', name: 'constraintlayout', version: "$rootProject.androidx_constraintLayoutVersion"
+
+
+    implementation 'com.github.mik3y:usb-serial-for-android:3.3.0'
+
+}

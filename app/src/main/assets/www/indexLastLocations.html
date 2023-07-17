@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+            integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+            crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet-ant-path@1.3.0/dist/leaflet-ant-path.js"
+            integrity="sha384-OEj5w5dYIX4MUvZAeaQ/7L8HGNi6Qtb54Yl6dY1sUQyUiOuxeUznR8DOvAWHGpOx"
+            crossorigin=""></script>
+    <style>
+            body {
+                padding: 0;
+                margin: 0;
+            }
+            html, body, #mapid {
+                height: 100%;
+            }
+
+    </style>
+    <script src="file:///android_asset/jquery.min.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="mapid"></div>
+<script type="text/javascript">
+
+    function getLocations() {
+        if(typeof Android !== "undefined" && Android !== null) {
+            let locations = Android.getLocations()
+            console.log('Locations: ', locations)
+            return JSON.parse(locations);
+        } else {
+            alert("Not viewing in webview");
+            console.log('Not viewing in webview')
+        }
+    }
+
+    // TODO: check if the array is empty or not
+    let data = getLocations()
+    console.log('Data: ', data)
+
+    var mymap = L.map('mapid').setView([data[0].latitude, data[0].longitude], 13);
+
+    L.tileLayer(
+        'http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            maxZoom: 15,
+            minZoom: 7
+        }
+        ).addTo(mymap)
+
+    function buildMarkers(data) {
+        var i;
+
+        let svg = `
+        <svg xmlns="http://www.w3.org/2000/svg" height="100" width="100">
+
+            <circle cx="50" cy="50" r="35" stroke="#2088b7" stroke-width="3" fill="#2088b7" class="blob" >
+                <animate attributeType="SVG" attributeName="r" begin="0s" dur="1.5s" repeatCount="indefinite" from="5%" to="25%"/>
+				<animate attributeType="CSS" attributeName="stroke-width" begin="0s"  dur="1.5s" repeatCount="indefinite" from="3%" to="0%" />
+				<animate attributeType="CSS" attributeName="opacity" begin="0s"  dur="1.5s" repeatCount="indefinite" from="1" to="0"/>
+			</circle>
+		</svg>`;
+
+        let iconUrl = encodeURI("data:image/svg+xml," + svg).replace(/#/g,'%23');
+
+        // RED icon Marker - for gnss position - BLUE icon Marker - for position added by phone
+        var redIcon = new L.Icon({
+            iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+
+
+        for (i = 0; i < data.length; i++) {
+
+            // ** Add new marker to map **
+            let icon = L.icon({
+                iconUrl: data[i].connectivity,
+                iconSize: [50, 50],
+                iconAnchor: [40, 40],
+                popupAnchor: [-20, -40]
+            });
+
+
+            if(data[i].connectivity == "nfc" || data[i].connectivity == "ble"){
+
+                let leafletMarker = L.marker(
+                    L.latLng(
+                        data[i].latitude,
+                        data[i].longitude
+                        )
+                    );
+
+                let description = "<b>" + data[i].deviceName + "</b>" +
+                "<br>" + "~" + data[i].date +
+                "<br>" + "(" + data[i].latitude + ", " +  data[i].longitude + ")" +
+                "<br>" + "<i>" + "Position added by Phone" + "</i>"
+
+                leafletMarker.addTo(mymap)
+                .bindPopup(description)
+                .openPopup();
+
+            } else {
+
+                let leafletMarker = L.marker(
+                    L.latLng(
+                        data[i].latitude,
+                        data[i].longitude
+                        ), {icon: redIcon}
+                    );
+
+                let description = "<b>" + data[i].deviceName + "</b>" +
+                "<br>" + "~" + data[i].date +
+                "<br>" + "(" + data[i].latitude + ", " +  data[i].longitude + ")"
+
+                leafletMarker.addTo(mymap)
+                .bindPopup(description)
+                .openPopup();
+
+            }
+
+            /*L.circleMarker([data[i].latitude, data[i].longitude], {
+                radius: 32,
+                fillOpacity: 0.5
+            }).addTo(mymap);*/
+
+        }
+
+    }
+
+
+    buildMarkers(data)
+
+
+    function buildRoads(data, map) {
+        var j;
+        for (j = data.length - 1 ; j > 0 ; j--) {
+            const nextLatitude = data[j - 1].latitude
+            const nextLongitude = data[j - 1].longitude
+            const path = L.polyline.antPath([data[j].latitude, data[j].longitude], [nextLatitude, nextLongitude], {
+                "delay": 400,
+                "dashArray": [
+                    10,
+                    63
+                ],
+                "weight": 10,
+                "color": '#2088b7',
+                "pulseColor": '#1e88e5',
+                "paused": false,
+                "reverse": false,
+                "hardwareAccelerated": true
+            })
+            map.addLayer(path);
+            map.fitBounds(path.getBounds())
+        }
+    }
+
+    buildRoads(data, mymap)
+
+</script>
+
+</body>
+</html>

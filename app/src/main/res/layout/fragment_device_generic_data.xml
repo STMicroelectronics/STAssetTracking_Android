@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.st.assetTracking.dashboard.util.LoadingView
+        android:id="@+id/device_generic_loadingView"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/device_generic_dataView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/device_generic_toggle_group"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:focusable="auto"
+            android:focusableInTouchMode="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/device_generic_TabLayout"
+            app:layout_constraintTop_toTopOf="parent"
+            app:singleSelection="true">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/device_generic_load_3hData"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/single_device_load_3hData" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/device_generic_load_6hData"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/single_device_load_6hData" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/device_generic_load_1dData"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/single_device_load_1dData" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/device_generic_load_2dData"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/single_device_load_2dData" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/device_generic_load_7dData"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/single_device_load_7dData" />
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/device_generic_TabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/device_generic_viewPager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/device_generic_toggle_group"
+            app:tabGravity="fill"
+            app:tabMode="fixed"/>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/device_generic_viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/device_generic_TabLayout">
+
+        </androidx.viewpager2.widget.ViewPager2>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

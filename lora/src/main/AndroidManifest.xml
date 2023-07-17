@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-feature android:name="android.hardware.usb.host" />
+    <application>
+        <activity android:name=".AtrLoraMainActivity">
+            <!--
+
+            <<< UNCOMMENT for redirect to this activity when a LoRa device is plugged >>>
+
+            <intent-filter>
+                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
+            </intent-filter>
+            <meta-data android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
+            android:resource="@xml/device_filter" />-->
+
+        </activity>
+    </application>
+
+</manifest>

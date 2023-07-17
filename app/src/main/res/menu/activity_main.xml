@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/main_menu_group">
+        <item
+            android:id="@+id/dshcloud"
+            android:icon="@drawable/ic_cloud"
+            android:title="CloudDSH"
+            app:showAsAction="ifRoom"/>
+
+        <item
+            android:id="@+id/boardslocation"
+            android:icon="@drawable/ic_location"
+            android:title="Logout"
+            app:showAsAction="ifRoom"/>
+
+        <item
+            android:id="@+id/logout"
+            android:icon="@drawable/ic_exit"
+            android:title="Logout"
+            app:showAsAction="ifRoom"/>
+    </group>
+
+    <group
+        android:id="@+id/other_menu_group">
+        <item
+            android:id="@+id/main_showLicenses"
+            android:title="Licenses"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/main_appversion"
+            android:title="Version" />
+
+        <!--<item
+            android:id="@+id/main_theme"
+            android:title="Theme" />-->
+    </group>
+
+    <!--<item
+        android:id="@+id/main_v3"
+        android:title="v3 Prototype" />-->
+</menu>

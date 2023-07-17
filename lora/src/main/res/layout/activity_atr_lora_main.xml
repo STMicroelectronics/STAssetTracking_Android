@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AtrLoraMainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvPreliminary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="2dp"
+                    app:cardElevation="2dp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_margin="8dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1. Connection"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+                        <LinearLayout
+                            android:id="@+id/layoutConnection"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:orientation="vertical">
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_weight="1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+                                    <TextView
+                                        android:id="@+id/tvLoraConnect"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                        android:text="Smartphone ⇔ Board"/>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="2dp"
+                                        android:text="Connect the board to the phone with the supplied cable."
+                                        android:textSize="12sp" />
+                                </LinearLayout>
+
+                                <ProgressBar
+                                    android:id="@+id/pb_connection"
+                                    style="?android:attr/progressBarStyle"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:indeterminate="true" />
+                                <ImageView
+                                    android:id="@+id/ivConnected"
+                                    android:visibility="gone"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    app:srcCompat="@drawable/ic_check" />
+                                <ImageView
+                                    android:id="@+id/ivRetry"
+                                    android:visibility="gone"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    app:srcCompat="@drawable/ic_retry" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/layoutCheckFWVersion"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:orientation="vertical">
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_weight="1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+                                    <TextView
+                                        android:id="@+id/tvFwVersion"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                        android:text="Check Firmware version"/>
+                                    <TextView
+                                        android:id="@+id/tvErrorFw"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="2dp"
+                                        android:visibility="gone"
+                                        android:text="Connect the board to the phone with the supplied cable."
+                                        android:textColor="@color/design_default_color_error"
+                                        android:textSize="12sp" />
+                                </LinearLayout>
+
+                                <ProgressBar
+                                    android:id="@+id/pb_checkFwVersion"
+                                    style="?android:attr/progressBarStyle"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:indeterminate="true" />
+                                <ImageView
+                                    android:id="@+id/ivCheckFwVersion"
+                                    android:visibility="gone"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    app:srcCompat="@drawable/ic_check" />
+                                <ImageView
+                                    android:id="@+id/iBlockCheckFwVersion"
+                                    android:visibility="gone"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    app:srcCompat="@drawable/ic_block" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/layoutRetrieveDevEUI"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:orientation="vertical">
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_weight="1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+                                    <TextView
+                                        android:id="@+id/tvDeviceEUI"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                        android:text="Retrieve Information from Board"/>
+                                </LinearLayout>
+
+                                <ProgressBar
+                                    android:id="@+id/pb_retrieveDevEUI"
+                                    style="?android:attr/progressBarStyle"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:indeterminate="true" />
+                                <ImageView
+                                    android:id="@+id/ivRetrieveDevEUI"
+                                    android:visibility="gone"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    app:srcCompat="@drawable/ic_check" />
+                                <ImageView
+                                    android:id="@+id/ivRetryRetrieveDevEUI"
+                                    android:visibility="gone"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    app:srcCompat="@drawable/ic_retry" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvBoardName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="2dp"
+                    app:cardElevation="2dp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cvPreliminary">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2. Cloud Dashboard Registration"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+                        <LinearLayout
+                            android:id="@+id/layoutCloudDashboardRegistration"
+                            android:visibility="gone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/settings_board_value"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginBottom="8dp"
+                                android:padding="8dp"
+                                android:background="@drawable/textview_border"
+                                android:text="DeviceEUI: "
+                                android:textAlignment="center"
+                                android:textSize="18sp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="The DeviceEUI will be the ID used to register the board on the cloud dashboard"
+                                    android:textSize="12sp" />
+
+                                <Button
+                                    android:id="@+id/btn_cloud_registration"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Start"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Small" />
+                            </LinearLayout>
+                            </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.core.widget.ContentLoadingProgressBar
+                    android:id="@+id/dashboard_loading_bar"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:indeterminate="true"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cvBoardName" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvSettingsLora"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="2dp"
+                    app:cardElevation="2dp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/dashboard_loading_bar">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_margin="8dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3. LoRa Settings"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+                        <LinearLayout
+                            android:id="@+id/layoutLoraSettings"
+                            android:visibility="gone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginTop="8dp">
+                                <TextView
+                                    android:id="@+id/tv_device_registration"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                    android:layout_weight="1"
+                                    android:text="Device registration..." />
+                                <ProgressBar
+                                    android:id="@+id/pb_device_registration"
+                                    style="?android:attr/progressBarStyle"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:indeterminate="true" />
+                                <ImageView
+                                    android:id="@+id/ivDeviceRegistration"
+                                    android:visibility="gone"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    app:srcCompat="@drawable/ic_check" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginTop="8dp">
+                                <TextView
+                                    android:id="@+id/tv_configuration_settings"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                    android:layout_weight="1"
+                                    android:text="Configuration settings..." />
+                                <ProgressBar
+                                    android:id="@+id/pb_configuration_settings"
+                                    style="?android:attr/progressBarStyle"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:indeterminate="true" />
+                                <ImageView
+                                    android:id="@+id/ivConfigurationSettings"
+                                    android:visibility="gone"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    app:srcCompat="@drawable/ic_check" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvDoneConfiguration"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="2dp"
+                    app:cardElevation="2dp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cvSettingsLora">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_margin="8dp">
+
+                        <TextView
+                            android:id="@+id/tvDone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:text="4. Completed"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+                        <LinearLayout
+                            android:id="@+id/layoutCompleted"
+                            android:visibility="gone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                android:layout_weight="1"
+                                android:textSize="12sp"
+                                android:text="Device configuration and registration on Cloud Dashboard completed. " />
+
+                            <LinearLayout
+                                android:id="@+id/llButtonsDone"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="right">
+
+                                <com.google.android.material.button.MaterialButton
+                                    android:id="@+id/btnShowSerialConsole"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                                    android:text="Show Log"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Small"/>
+
+                                <com.google.android.material.button.MaterialButton
+                                    android:id="@+id/btnShowDeviceOnCloud"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                                    android:text="Show Device On Cloud"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Small"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvLogConsole"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="2dp"
+                    app:cardElevation="2dp"
+                    android:visibility="gone"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cvDoneConfiguration">
+                    <LinearLayout
+                        android:id="@+id/layoutLogConsole"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_margin="8dp"
+                        app:layout_constraintTop_toBottomOf="@+id/cvDoneConfiguration">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="LOG Console"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+                        <TextView
+                            android:id="@+id/tvLOG"
+                            android:layout_margin="2dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:layout_weight="1"
+                            android:freezesText="true"
+                            android:gravity="bottom"
+                            android:scrollbars="vertical"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                            android:typeface="monospace" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!--<com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fb_serial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        app:backgroundTint="#FFD300"
+        app:srcCompat="@drawable/ic_configuration"
+        app:tint="#001C51" />-->
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

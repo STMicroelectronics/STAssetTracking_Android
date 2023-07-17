@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="addWakeUpThreshold_title">Add WakeUp Threshold</string>
-    <string name="addWakeUpThreshold_description">Record the event when an shock is detected</string>
-    <string name="addWakeUpThreshold_valueHint">Acceleration shock</string>
-</resources>

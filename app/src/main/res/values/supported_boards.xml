@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="board_lora_name">LoRa® IoT tracker</string>
+    <string name="board_lora_specific">STEVAL-STRKT01</string>
+    <string name="board_lora_desc">The STEVAL-STRKT01 LoRa® IoT tracker is designed and optimized to implement the latest technologies in IoT tracker applications such as asset, people and animal tracking as well as fleet management.</string>
+
+    <string name="board_smarTag_name">SmarTag 1</string>
+    <string name="board_smarTag_specific">STEVAL-SMARTAG1</string>
+    <string name="board_smarTag_desc">This smart and flexible NFC Tracker evaluation board with sensors includes a comprehensive software library and a sample application to monitor and log sensor data over NFC from an Android or iOS device.</string>
+
+    <string name="board_smarTag2_name">SmarTag 2</string>
+    <string name="board_smarTag2_specific">STEVAL-SMARTAG2</string>
+    <string name="board_smarTag2_desc">The STEVAL-SMARTAG2 is an NFC-enabled sensor node, which embeds inertial MEMS sensors and environmental sensors, an STM32 microcontroller, and a dynamic NFC tag for communication with NFC readers, such as tablets and smartphones.</string>
+
+    <string name="board_atrble1_name">SensorTile.box</string>
+    <string name="board_atrble1_specific">STEVAL-MKSBOX1V1</string>
+    <string name="board_atrble1_desc">FP-ATR-BLE1 is an STM32Cube function pack for asset tracking using BLE connectivity for the SensorTile.box wireless multi sensor development kit, which helps you to build custom applications.</string>
+
+    <string name="board_polaris_name">ASTRA</string>
+    <string name="board_polaris_specific">STEVAL-ASTRA1</string>
+    <string name="board_polaris_desc">The ASTRA platform (STEVAL-ASTRA1B) is a development kit and reference design that simplifies prototyping, testing and evaluating advanced asset tracking applications such as livestock monitoring, fleet management, and logistics.</string>
+
+    <string name="board_sensortileboxpro_name">SensorTile.box PRO</string>
+    <string name="board_sensortileboxpro_specific">STEVAL-MKBOXPRO</string>
+    <string name="board_sensortileboxpro_desc">The STEVAL-MKBOXPRO (SensorTile.box PRO) is the new ready-to-use programmable wireless box kit for developing any IoT application based on remote data gathering and evaluation, exploit the full kit potential by leveraging both motion and environmental data sensing, along with a digital microphone, and enhance the connectivity and smartness of whatever environment you find yourself into.</string>
+
+</resources>

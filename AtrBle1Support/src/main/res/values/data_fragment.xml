@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="data_eventTabName">Events</string>
+    <string name="data_sensorTabName">Sensor Plots</string>
+    <string name="data_loadingProgressFormat">Loading… %3.0f%%</string>
+    <string name="data_dumpingData">Reading data…</string>
+    <string name="data_syncDataTitle">Upload to cloud</string>
+    <string name="data_syncDataMessage">Do you want to upload logged data to the cloud?</string>
+</resources>

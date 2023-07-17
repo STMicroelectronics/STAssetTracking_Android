@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".MainAssetTracking">
+
+<androidx.fragment.app.FragmentContainerView
+    android:id="@+id/assetTracker_dashboard_rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="?attr/actionBarSize"
+    tools:context=".AssetTrackerDashboard" />
+
+<include
+    android:id="@+id/dashboardInteractionProgress"
+    layout="@layout/progress_bar_with_text"
+    android:visibility="gone"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:visibility="gone" />
+
+<com.google.android.material.bottomappbar.BottomAppBar
+    android:id="@+id/bottomAppBar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
+    app:menu="@menu/activity_main"
+    app:fabAlignmentMode="end"/>
+    <!--app:navigationIcon="@drawable/ic_menu"-->
+
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/addNewDevice"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:backgroundTint="@color/fabColorPrimaryDark"
+    app:srcCompat="@drawable/ic_add"
+    app:layout_anchor="@id/bottomAppBar"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

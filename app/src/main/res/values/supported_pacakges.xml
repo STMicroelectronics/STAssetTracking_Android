@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="package_sifgox_name">FP-ATR-SIGFOX1</string>
+    <string name="package_sifgox_desc">STM32Cube function pack for IoT tracker node with Sigfox™ connectivity, Bluetooth connectivity and sensors</string>
+
+    <string name="package_lora_name">FP-ATR-LORA1</string>
+    <string name="package_lora_desc">STM32Cube function pack for IoT tracker node with LoRaWAN™ connectivity</string>
+
+    <string name="package_smarTag_name">FP-SNS-SMARTAG1</string>
+    <string name="package_smarTag_desc">STM32Cube function pack for IoT node with Dynamic NFC Tag, environmental and motion sensors</string>
+
+    <string name="package_bluetile_desc">CHANGE ME</string>
+    <string name="package_bluetile_name">BluTile FP Name</string>
+
+    <string name="package_assetTracking_desc">Asset Tracking Dashboard</string>
+    <string name="package_assetTracking_name">Asset Tracking Dashboard</string>
+
+    <string name="package_atrble1_name">FP-ATR-BLE1</string>
+    <string name="package_atrble1_desc">STM32Cube function pack for asset tracking using BLE connectivity for SensorTile.box wireless multi sensor development kit</string>
+
+</resources>

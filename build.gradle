@@ -1,15 +1,29 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '1.3.50'
+    ext.kotlin_version = '1.6.10'
+    ext.kotlin_coroutineVersion = '1.5.2'
+
     repositories {
         google()
-        jcenter()
+        mavenCentral()
+        //Need for SmartTag
+        maven {
+            url 'https://maven.fabric.io/public'
+        }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.1'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.android.tools.build:gradle:7.4.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.21"
+        //notification & Crashlytics
+        classpath 'com.google.gms:google-services:4.3.14'
 
+        //needed for crashanalytics SMARTTAG
+        classpath 'io.fabric.tools:gradle:1.31.2'
+
+
+        //plug in to generate the license activity
+        classpath 'com.google.android.gms:oss-licenses-plugin:0.10.4'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -18,7 +32,8 @@ buildscript {
 allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
     }
 }
 
@@ -28,25 +43,62 @@ task clean(type: Delete) {
 
 // Define versions in a single place
 ext {
-    minSdkVersion = 19 //19 since we need the setPin api
-    targetSdkVersion = 29
-    compileSdkVersion = 29
-    buildToolsVersion = '29.0.2'
+    minSdkVersion = 26 //19 since we need the setPin api
+    targetSdkVersion = 33
+    compileSdkVersion = 33
+    buildToolsVersion = '30.0.3'
 
-    androidx_appCompatVersion='1.1.0'
-    androidx_materialVersion='1.0.0'
-    androidx_constraintLayoutVersion = '1.1.3'
-    androidx_recycleViewVersion = '1.0.0'
+    androidx_appCompatVersion= '1.4.0'
+
+    androidx_materialVersion= '1.4.0'
+    androidx_constraintLayoutVersion = '2.1.2'
+    androidx_recycleViewVersion = '1.2.1'
     androidx_cardViewVersion = '1.0.0'
-    androidx_recycleViewVersion = '1.0.0'
-    androidx_lifecycleExtVersion = '2.1.0'
-    androidx_annotationVersion = "1.1.0"
+    androidx_lifecycleExtVersion = '2.2.0'
+    androidx_lifecycleKtx = '2.4.0'
+    androidx_preference = '1.1.1'
+    androidx_activityKtx = '1.4.0'
+    androidx_fragmentKtx = '1.4.0'
+    androidx_viewPager2 = '1.0.0'
+    androidx_annotationVersion = "1.3.0"
+    androidx_localBroadcastVersion = "1.0.0"
+    androidx_swipeRefreshLayoutVersion = "1.1.0"
+    androidx_roomVersion = "2.4.0-rc01"
 
-    // Test dependecy
-    androidx_runnerVersion = '1.2.0'
-    androidx_rulesVersion = '1.2.0'
-    androidx_espressoVersion = '3.2.0'
-    junitVersion = '4.12'
-    mockitoVersion = '1.9.5'
+    gsonVersion = '2.8.9'
+
+    // Test dependency
+    androidx_junitVersion = '1.1.3'
+    androidx_runnerVersion = '1.4.0'
+    androidx_rulesVersion = '1.4.0'
+    androidx_espressoVersion = '3.4.0'
+
+    kotlin_coroutineVersion = '1.5.2'
+    javaVersion = JavaVersion.VERSION_1_8
+    
+    junitVersion = '4.13.2'
+    mockitoVersion = '4.2.0'
+
+    awsVersion = '2.37.0'
+    firebase_messagingVersion = '23.0.0'
+    retrofitVersion = '2.9.0'
+
+    supportLibraryVersion = '1.0.0'
+    supportVectorDrawableVersion = '1.1.0'
+
+    lifeCycleRuntimeVersion = '2.4.0'
+    lifeCycleExtensionVersion = '2.2.0'
+    supportActivityVersion = '1.1.0'
+
+    broadcastVersion = '1.0.0'
+
+    pahoVersion = '1.2.5'
+    pahoServiceVersion = '1.1.1'
+
+    googleServicesBaseVersion = '17.1.0'
+
+    glideVersion = '4.12.0'
+
+    core_ktx = "1.7.0"
 
 }
